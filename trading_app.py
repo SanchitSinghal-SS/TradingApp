@@ -11,7 +11,7 @@ def calculate_ema(data, period):
 
 # Load EQUITY_COPY.csv to get the list of tickers
 equity_df = pd.read_csv(
-    'D:\\Skills\\Finance\\PrakharProject\\data\\EQUITY_L copy.csv')
+    'data\\EQUITY_L copy.csv')
 # Streamlit app
 st.title('Nifty Equity Shares Analysis')
 
@@ -24,7 +24,7 @@ if ticker:
     try:
         data = yf.download(f"{ticker}.NS")
         data.to_csv(
-            f"D:\\Skills\\Finance\\PrakharProject\\data\\HistoricalData\\{ticker}.csv")
+            f"data\\HistoricalData\\{ticker}.csv")
         print(f"Downloaded {ticker} data")
     except:
         print("Cannot download data")
