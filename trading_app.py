@@ -25,7 +25,7 @@ if ticker:
     try:
         data = yf.download(f"{ticker}.NS")
         data.to_csv(
-            f"data/HistoricalData/{ticker}.csv")
+            f"data\\HistoricalData\\{ticker}.csv")
         print(f"Downloaded {ticker} data")
     except:
         print("Cannot download data")
