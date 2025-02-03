@@ -10,8 +10,9 @@ def calculate_ema(data, period):
 
 
 # Load EQUITY_COPY.csv to get the list of tickers
+
 equity_df = pd.read_csv(
-    'data\\EQUITY_L copy.csv')
+    'data\EQUITY_L copy.csv')
 # Streamlit app
 st.title('Nifty Equity Shares Analysis')
 
