@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.graph_objs as go
-
+import yfinance as yf
 # Function to calculate EMA
 
 
@@ -10,8 +10,8 @@ def calculate_ema(data, period):
 
 
 # Load EQUITY_COPY.csv to get the list of tickers
-equity_df = pd.read_csv('data/EQUITY_L copy.csv')
-
+equity_df = pd.read_csv(
+    'D:\\Skills\\Finance\\PrakharProject\\data\\EQUITY_L copy.csv')
 # Streamlit app
 st.title('Nifty Equity Shares Analysis')
 
@@ -20,6 +20,16 @@ ticker = st.selectbox('Select a ticker:', equity_df['SYMBOL'])
 
 # Load the historical data for the selected ticker
 if ticker:
+    print("Outside download try catch block")
+    try:
+        data = yf.download(f"{ticker}.NS")
+        st.write(data)
+        data.to_csv(
+            f"D:\\Skills\\Finance\\PrakharProject\\data\\HistoricalData\\{ticker}.csv")
+        print(f"Downloaded {ticker} data")
+    except:
+        print("Cannot download data")
+
     historical_data_path = f'data/HistoricalData/{ticker}.csv'
     try:
         df = pd.read_csv(historical_data_path, parse_dates=[
