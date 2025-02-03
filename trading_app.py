@@ -23,7 +23,6 @@ if ticker:
     print("Outside download try catch block")
     try:
         data = yf.download(f"{ticker}.NS")
-        st.write(data)
         data.to_csv(
             f"D:\\Skills\\Finance\\PrakharProject\\data\\HistoricalData\\{ticker}.csv")
         print(f"Downloaded {ticker} data")
